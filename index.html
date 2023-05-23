@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./Assets/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" src="./site.css" href="">
+
+</head>
+
+<body>
+    <div id="app">
+        <br>
+        <div class="container">
+            <div class="row">
+                <button class="btn btn-default" @click="FavoriteOnlyToggle()">
+                    <span v-if="!favoriteOnly">Show only favorite books</span>
+                    <span v-if="favoriteOnly">Show all books</span>
+                </button>
+            </div> 
+            <ul class="flex row" v-if="!favoriteOnly">
+                <li v-for="item in books" @dblclick="LikeBook(item)">
+                        <div class="picbox" :class="{fav:item.isfav}">
+                            <div>
+                                    <img :src="item.imgsrc" class="bookPic" >
+                                <div>
+                                    <b>{{item.title}}</b>
+                                    <br>
+                                    <p>author: {{item.author}}</p>
+                                    <p>Release year: {{item.releaseyear}}</p>
+                                    <button class="btn btn-success"  @click="LikeBook(item)">
+                                        <span v-if="!item.isfav">Like this book</span>
+                                        <span v-if="item.isfav">You liked this book</span>
+                                    </button>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+        </ul>
+        <ul class="flex row" v-if="favoriteOnly">
+            <li v-for="item in ReturnfavoriteBooks" @dblclick="LikeBook(item)">
+                    <div class="picbox" :class="{fav:item.isfav}">
+                        <div>
+                                <img :src="item.imgsrc" class="bookPic" >
+                            <div>
+                                <b>{{item.title}}</b>
+                                <br>
+                                <p>author: {{item.author}}</p>
+                                <p>Release year: {{item.releaseyear}}</p>
+                                <button class="btn btn-success"  @click="LikeBook(item)">
+                                    <span v-if="!item.isfav">Like this book</span>
+                                    <span v-if="item.isfav">You liked this book</span>
+                                </button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+    </ul>
+        </div>   
+    <br>
+
+    <!-- <div class="box" @mouseover="EventHandler($event,'over')">mouse Over</div>
+    <div class="box" @mouseleave="EventHandler($event,'leave')">Mouse Leave</div>
+    <br>
+    <div class="box" @dblclick="EventHandler($event,'double')">double click</div>
+    <div class="box" @click="EventHandler($event,'click')">Mouse Click</div>
+    <br>
+    <div class="box" @mousemove="HandleMouseMove">{{x}}-{{y}}</div> -->
+
+
+
+    </div>
+
+    <link rel="stylesheet" href="/site.css">
+    <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

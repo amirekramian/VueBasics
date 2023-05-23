@@ -1,0 +1,45 @@
+.box{
+    padding: 100px 0;
+    width: 400px;
+    text-align: center;
+    background: #92bdff;
+    margin: 20px;
+}
+
+.bookPic{
+    max-width: 150px;
+    max-height: 200px;
+}
+
+.picbox{
+    border-radius: 15px;
+    padding: 5px;
+    margin: 15px;
+    background: #18008513;
+    width: 190px;
+    align-items: center;
+    text-align: center;
+}
+
+div.fav{
+    border-radius: 15px;
+    background: #ffc8c8;
+    width: 190px;
+    align-items: center;
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style: none;
+}
+
+button.faved{
+border-color: #00c431;
+background-color: white;
+color: black;
+}
